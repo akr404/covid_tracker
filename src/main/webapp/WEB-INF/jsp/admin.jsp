@@ -91,9 +91,6 @@
 	<div  class="container" align="center">
 		<span><a href="<c:url value="/maps_india" />">Covid Maps</a></span>
 	</div>
-	<div  class="container" align="center">
-		<marquee behavior="scroll" direction="left">Here is some scrolling text... right to left!</marquee>
-	</div>
 </div>	
 </body>
 </html>

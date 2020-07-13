@@ -33,6 +33,11 @@ public class UserController {
 	UserService userService;
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String index(Model model, String error, String logout) {
+		return "login";
+	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Model model, String error, String logout) {
