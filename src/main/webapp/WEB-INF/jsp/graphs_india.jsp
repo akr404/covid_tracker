@@ -15,7 +15,7 @@
 <script 
  	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
 </script>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script src="/js/canvasjs.min.js"></script>
 <script type="text/javascript">
 window.onload = function() { 
 	var timeline = '${timeline}';
@@ -44,7 +44,30 @@ window.onload = function() {
 			dataPoints : data
 		}]
 	});
+	
+	var dataPie = '${dataPie}';
+	
+	var datapoint = [];
+	console.log(dataPie);
+	datapoints = $.parseJSON(dataPie);
+	
+	
+	var chart2 = new CanvasJS.Chart("chartContainer2",
+	{
+		title:{
+			text: "India in world"
+		},
+		data: [{
+			type: "pie",
+			startAngle: 240,
+			yValueFormatString: "",
+			indexLabel: "{label} {y}",
+			dataPoints: datapoints
+		}]
+	});
 	chart.render();
+	chart2.render();
+			
 	} 
 </script>
 </head>
@@ -63,7 +86,9 @@ window.onload = function() {
 </c:choose>
 <span><h5>${name}</h5></span>
 </div>
-<div id="chartContainer" style="height: 370px; width: 100%;">
+<div>
+<div id="chartContainer" style="height: 370px; width: 50%;display: inline-block;"></div>
+<div id="chartContainer2" style = "display: inline-block;"></div>
 </div>
 </body>
 </html>

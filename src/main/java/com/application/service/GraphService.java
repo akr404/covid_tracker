@@ -25,9 +25,24 @@ public class GraphService {
 			indian.put("x", item.get("Date"));
 			list.add(indian);
 		}
+
+		return gsonObj.toJson(list);
+		
+	}
+	public String convertTOGraphPie(List<Map<String, Object>> data)
+	{
+		Gson gsonObj = new Gson();
+		List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+		
+		for(Map<String, Object> item: data)
+		{
+			Map<String, Object> indian = new HashMap<>();
+			indian.put("label", item.get("country"));
+			indian.put("y", item.get("cases"));
+			list.add(indian);
+		}
 		System.out.println(gsonObj.toJson(list));
 		return gsonObj.toJson(list);
 		
 	}
-
 }
